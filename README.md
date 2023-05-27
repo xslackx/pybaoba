@@ -13,4 +13,4 @@ In this release the main goal is.
 - Determine which package manager
 - Get installed packages separate by: Name, Version, Group
 
-By default output is a JSON 
+By default output is a JSON
