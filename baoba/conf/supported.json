@@ -1,0 +1,11 @@
+{
+  "systems":{
+    "ID": [
+      "fedora",
+      "debian",
+      "redhat",
+      "ubuntu",
+      "alpine"
+    ]
+  }
+}
