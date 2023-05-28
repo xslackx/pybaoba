@@ -3,6 +3,8 @@
 
 The Gnome Baobab is the awesome and simple utility to
 see disk usage in Gnome.
+https://gitlab.gnome.org/GNOME/baobab/
+
 Sometimes i idealize if the Gnome Baobab has CLI tool
 who can export data to a local web page, very useful
 when you don't have any Xorg interface or in production
