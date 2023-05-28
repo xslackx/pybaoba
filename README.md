@@ -8,7 +8,7 @@ https://gitlab.gnome.org/GNOME/baobab/
 Sometimes i idealize if the Gnome Baobab has CLI tool
 who can export data to a local web page, very useful
 when you don't have any Xorg interface or in production
-server where usally don't have any GUI interface.
+server where usually don't have any GUI interface.
 
 In this release the main goal is.
 - Identify OS like
