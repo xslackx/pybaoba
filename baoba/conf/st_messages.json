@@ -5,7 +5,9 @@
 		"err": {
 			"01": "os-release don't exists",
 			"f01": "only accept info, ok or err",
-			"f02": "need a type and st_code"
+			"f02": "need a type and st_code",
+			"f03": "OS not listed on supported",
+			"f04": "ID not found on supported OS"
 		}
 	}
 }
