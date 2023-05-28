@@ -2,10 +2,10 @@ import json
 
 def loadFile():
     status = "../conf/st_messages.json"
-        with open(status, "r+") as file:
-            msg = json.load(file)
-            file.close()
-        return msg
+    with open(status, "r+") as file:
+        msg = json.load(file)
+        file.close()
+    return msg
 
 def userMsg(type, st_code):
     msg = loadFile()
@@ -14,3 +14,5 @@ def userMsg(type, st_code):
 
     if type != 'info' and type != 'ok' and type != 'err':
         return  msg["status"]["err"]["f01"]
+
+    return msg["status"][type][st_code]
