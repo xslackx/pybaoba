@@ -1,4 +1,5 @@
-import os
+import os, usermsg
+
 def osLike():
     os_release="/etc/os-release"
     if os.access(os_release, os.R_OK):
@@ -7,8 +8,5 @@ def osLike():
             f.close()
         return file.split("\n")
     else:
-        msg = {
-            "status": "fail",
-            "erro": "os-release don't exists"
-        }
+        msg = usermsg.userMsg('err', 'f01')
         return msg
