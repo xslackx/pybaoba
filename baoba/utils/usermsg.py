@@ -1,14 +1,14 @@
 import json
 
-def loadFile():
-    status = "../conf/st_messages.json"
-    with open(status, "r+") as file:
+def loadFile(json_file):
+    with open(json_file, "r+") as file:
         msg = json.load(file)
         file.close()
     return msg
 
 def userMsg(type, st_code):
-    msg = loadFile()
+    status = "../conf/st_messages.json"
+    msg = loadFile(status)
     if type == None or st_code == None:
         return msg["status"]["err"]["f02"]
 
