@@ -14,6 +14,7 @@ def osLike():
         for key in file:
             if re.match(r"ID=(.*)", key):
                 grep = re.match(r"ID=(.*)", key)
+                
         if not grep:
             return usermsg.userMsg('err', 'f04')
 
@@ -22,6 +23,6 @@ def osLike():
                 return id
 
         if not id:
-                return usermsg.userMsg('err', 'f03')
+            return usermsg.userMsg('err', 'f03')
     else:
         return usermsg.userMsg('err', 'f01')
