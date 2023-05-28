@@ -2,8 +2,8 @@
   "systems":{
     "ID": [
       "fedora",
-      "debian",
       "redhat",
+      "debian",
       "ubuntu",
       "alpine"
     ]
