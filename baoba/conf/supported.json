@@ -6,6 +6,11 @@
       "debian",
       "ubuntu",
       "alpine"
+    ],
+    "cmd": [
+      "dnf list installed",
+      "apt list --installed",
+      "apk list -I"
     ]
   }
 }

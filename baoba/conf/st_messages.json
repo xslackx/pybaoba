@@ -8,7 +8,8 @@
 			"f02": "need a type and st_code",
 			"f03": "OS not listed on supported",
 			"f04": "ID not found on supported OS",
-			"f05": "cmdlet not found"
+			"f05": "cmdlet not found",
+			"f06": "cmdlet not accept"
 		}
 	}
 }
