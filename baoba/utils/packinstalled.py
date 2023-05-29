@@ -1,4 +1,4 @@
-import subprocess, json, usermsg
+import subprocess, usermsg
 
 def packIns(cmd):
     msg = "../conf/st_messages.json"
