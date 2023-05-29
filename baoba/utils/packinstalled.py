@@ -8,6 +8,9 @@ def packIns(cmd):
     letcmd = usermsg.loadFile(cmdOk)
 
     for permited in letcmd["systems"]["cmd"]:
-    if cmd:
+        if cmd == permited:
+            sub = subprocess
+            res = sub.getoutput(permited)
 
-    pass
+    if res:
+        return res
