@@ -1,3 +1,5 @@
+import json
+
 def packFmt(pkgs, id):
     if id == "ubuntu":
         packs = pkgs.split("\n")
@@ -9,7 +11,7 @@ def packFmt(pkgs, id):
         packName = p.split()[0].split("/")[0]
         packGroup = p.split()[0].split("/")[1].split(",")
         packVersion = p.split()[1]
-        packArch = p.split()[2]
+        packArch = p.split()[2] 
 
         return {
             "name": packName,
@@ -20,7 +22,8 @@ def packFmt(pkgs, id):
     
     packStorage = []
     for x in range(len(packs)):
-        if x  != None:
+        if x != None:
             packStorage.append(eachPack(packs[x]))
 
-    return packStorage
+    
+    return json.dumps(packStorage)
