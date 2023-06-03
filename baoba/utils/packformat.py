@@ -8,29 +8,40 @@ def packFmt(pkgs, id):
         for aptwarning in range(4):
             packs.pop(0)
 
-    def eachPack(p):
+        packStorage = []
+        for x in range(len(packs)):
+            if x != None:
+                packStorage.append(eachPack(packs[x], id))
+
+        hits = hitCount(json.dumps(packStorage))
+    
+        packStorage.append(hits)
+    
+        return packStorage
+    
+    if id == "fedora":
+        packs = pkgs.split()
+        for dnflabel in range(1):
+            packs.pop(0)
+
+        
+
+
+def eachPack(p, i):
+    if i == "ubuntu":
         packName = p.split()[0].split("/")[0]
         packGroup = p.split()[0].split("/")[1].split(",")
         packVersion = p.split()[1]
-        packArch = p.split()[2] 
+        packArch = p.split()[2]
 
         return {
             "name": packName,
             "group": packGroup,
             "version": packVersion,
             "arch": packArch
-        }
-    
-    packStorage = []
-    for x in range(len(packs)):
-        if x != None:
-            packStorage.append(eachPack(packs[x]))
-
-    hits = hitCount(json.dumps(packStorage))
-    
-    packStorage.append(hits)
-    
-    return packStorage
+            }
+    if i == "fedora":
+        pass
 
 def hitCount(packStorage):
     allPacks = json.loads(packStorage)
