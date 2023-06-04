@@ -13,7 +13,7 @@ def packFmt(pkgs, id):
             if x != None:
                 packStorage.append(eachPack(packs[x], id))
 
-        hits = hitCount(json.dumps(packStorage))
+        hits = hitCount(json.dumps(packStorage), id)
     
         packStorage.append(hits)
     
@@ -21,10 +21,32 @@ def packFmt(pkgs, id):
     
     if id == "fedora":
         packs = pkgs.split()
-        for dnflabel in range(1):
+        for dnflabel in range(2):
             packs.pop(0)
-
         
+        packStorage = []
+        packNames = []
+        packVersions = []
+        packGroups = []
+
+        for x in range(0,len(packs),3):
+            packNames.append(packs[x])
+            for n in range(1, len(packs), 3):
+                packVersions.append(packs[n])
+                for i in range(2,len(packs),3):
+                    packGroups.append(packs[i])
+        
+        packs = (list(zip(packNames, packVersions, packGroups)))
+
+        for x in range(len(packs)):
+            if x != None:
+                packStorage.append(eachPack(packs[x], id))
+
+        hits = hitCount(json.dumps(packStorage), id)
+
+        packStorage.append(hits)
+
+        return packStorage
 
 
 def eachPack(p, i):
@@ -41,9 +63,20 @@ def eachPack(p, i):
             "arch": packArch
             }
     if i == "fedora":
-        pass
 
-def hitCount(packStorage):
+        packName = p[0].split(".")[0]
+        packGroup = p[2]
+        packVersion = p[1]
+        packArch = p[0].split(".")[1]
+       
+        return {
+            "name": packName,
+            "group": packGroup,
+            "version": packVersion,
+            "arch": packArch
+            }
+
+def hitCount(packStorage, id):
     allPacks = json.loads(packStorage)
     packTotal = str(len(allPacks))
     hit = {
@@ -61,8 +94,10 @@ def hitCount(packStorage):
     groups = []
     for x in range(len(allPacks)):
         hit64.append(allPacks[x]["arch"])
+        if id == "fedora":
+            groups.append(allPacks[x]["group"])
         groups.append(allPacks[x]["group"][0])
-
+        
     hit["hits"]["arch"] = Counter(hit64)
     hit["hits"]["group"] = Counter(groups)
 
