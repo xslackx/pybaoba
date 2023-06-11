@@ -16,3 +16,7 @@ In this release the main goal is.
 - Get installed packages separate by: Name, Version, Group
 
 By default output is a JSON
+
+
+This package is in deploy yet don't use in production env,
+utils/packformat consume too much ram.
