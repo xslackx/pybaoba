@@ -7,7 +7,7 @@ def loadFile(json_file):
     return msg
 
 def userMsg(type, st_code):
-    status = "../conf/st_messages.json"
+    status = "conf/st_messages.json"
     msg = loadFile(status)
     if type == None or st_code == None:
         return msg["status"]["err"]["f02"]

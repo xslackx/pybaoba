@@ -1,9 +1,10 @@
 import os, re
-from usermsg import userMsg, loadFile
+from .usermsg import userMsg, loadFile
+from os.path import abspath
 
 def osLike():
     os_release="/etc/os-release"
-    os_support="../conf/supported.json"
+    os_support="conf/supported.json"
     supported = loadFile(os_support)
 
     if os.access(os_release, os.R_OK):

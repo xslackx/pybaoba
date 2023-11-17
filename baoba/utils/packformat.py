@@ -1,4 +1,4 @@
-from json import dumps, load
+from json import dumps, loads
 from collections import Counter
 
 def packFmt(pkgs, id):
@@ -42,7 +42,7 @@ def packFmt(pkgs, id):
             if x != None:
                 packStorage.append(eachPack(packs[x], id))
 
-        hits = hitCount(json.dumps(packStorage), id)
+        hits = hitCount(dumps(packStorage), id)
 
         packStorage.append(hits)
 

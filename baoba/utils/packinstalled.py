@@ -1,9 +1,9 @@
 import subprocess
-from usermsg import loadFile
+from .usermsg import loadFile
 
 def packIns(cmd):
-    msg = "../conf/st_messages.json"
-    cmdOk = "../conf/supported.json"
+    msg = "conf/st_messages.json"
+    cmdOk = "conf/supported.json"
 
     msg = loadFile(msg)
     letcmd = loadFile(cmdOk)
