@@ -1,9 +1,10 @@
-import os, usermsg, re
+import os, re
+from usermsg import userMsg, loadFile
 
 def osLike():
     os_release="/etc/os-release"
     os_support="../conf/supported.json"
-    supported = usermsg.loadFile(os_support)
+    supported = loadFile(os_support)
 
     if os.access(os_release, os.R_OK):
         with open(os_release, "r") as f:
@@ -16,13 +17,13 @@ def osLike():
                 grep = re.match(r"ID=(.*)", key)
                 
         if not grep:
-            return usermsg.userMsg('err', 'f04')
+            return userMsg('err', 'f04')
 
         for id in supported["systems"]["ID"]:
             if id == grep[1]:
                 return id
 
         if not id:
-            return usermsg.userMsg('err', 'f03')
+            return userMsg('err', 'f03')
     else:
-        return usermsg.userMsg('err', 'f01')
+        return userMsg('err', 'f01')

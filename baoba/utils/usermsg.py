@@ -1,8 +1,8 @@
-import json
+from json import load
 
 def loadFile(json_file):
     with open(json_file, "r+") as file:
-        msg = json.load(file)
+        msg = load(file)
         file.close()
     return msg
 

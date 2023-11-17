@@ -1,11 +1,11 @@
-import usermsg
+from usermsg import loadFile
 
 def packMan(id):
     ids = "../conf/supported.json"
     msg = "../conf/st_messages.json"
 
-    sys = usermsg.loadFile(ids)
-    msg = usermsg.loadFile(msg)
+    sys = loadFile(ids)
+    msg = loadFile(msg)
 
     for os in sys["systems"]["ID"]:
         if os == id and id == "fedora" or id == "redhat":

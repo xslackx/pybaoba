@@ -1,11 +1,12 @@
-import subprocess, usermsg
+import subprocess
+from usermsg import loadFile
 
 def packIns(cmd):
     msg = "../conf/st_messages.json"
     cmdOk = "../conf/supported.json"
 
-    msg = usermsg.loadFile(msg)
-    letcmd = usermsg.loadFile(cmdOk)
+    msg = loadFile(msg)
+    letcmd = loadFile(cmdOk)
 
     for permited in letcmd["systems"]["cmd"]:
         if cmd == permited:
