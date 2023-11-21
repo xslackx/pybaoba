@@ -1,4 +1,4 @@
-# PyBaoba
+# pybaoba
 ## Show installed OS system package like gnome baobab
 
 The Gnome Baobab is the awesome and simple utility to
@@ -18,5 +18,22 @@ In this release the main goal is.
 By default output is a JSON
 
 
-This package is in deploy yet don't use in production env,
-utils/packformat consume too much ram.
+## This package is in deploy yet don't use in production.
+
+
+## to use
+
+Install all requirements needed
+
+```
+python3 -m venv baoba/
+
+```
+
+
+Starting pybaoba listen on default port 5001
+
+```
+source bin/activate && python3 wbaoba.py
+
+```
