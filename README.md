@@ -10,8 +10,7 @@ who can export data to a local web page, very useful
 when you don't have any Xorg interface or in production
 server where usually don't have any GUI interface.
 So i decided do create a clone inspired in Baobab 
-but to use where i don't have an GUI interface and
-visualize the basic host information, system packages
+to visualize the basic host information, system packages
 installed, basic disk usage on the web browser.
 
 
