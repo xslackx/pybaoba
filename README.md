@@ -20,16 +20,23 @@ By default output is a JSON
 
 ## This package is in deploy yet don't use in production.
 
+Before starting you need at least Python version 3.8.10, pip and venv module 
+properly installed on OS.
 
 ## to use
 
-Install all requirements needed
+Create env to pybaoba
 
 ```
 python3 -m venv baoba/
 
 ```
 
+Install all requirements needed
+
+```
+python3 -m pip install -r requirements.txt
+```
 
 Starting pybaoba listen on default port 5001
 
