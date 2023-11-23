@@ -8,9 +8,7 @@
         <script src="{{url_for('static', filename='js/uikit.min.js')}}"></script>
         <script src="{{url_for('static', filename='js/uikit-icons.min.js')}}"></script>
         <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.js" integrity="sha512-6LKCH7i2+zMNczKuCT9ciXgFCKFp3MevWTZUXDlk7azIYZ2wF5LRsrwZqO7Flt00enUI+HwzzT5uhOvy6MNPiA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/helpers.js" integrity="sha512-mP+Y3bimvz/biDjFiXeGMPnLCKXV+VuYXv86wAZ+llI6Gq0Ip3xjo6hx2AueB59sjk/bF66Y2K2vcvSLf/b+LQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-       
+        <script src=" https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js "></script>
         <script type="text/javascript">
             const guestData=JSON.parse('{{packages|safe}}')
         </script>
@@ -20,7 +18,37 @@
 
         <div  class="uk-container">
             
+            <div>
+                <canvas id="pieChart"></canvas>
+            </div>
+
         <div>
 
+        <script type="text/javascript" >
+            const ctx = document.getElementById('pieChart')
+            const archs = guestData.map( (e) => { return e.arch } )
+            const arch = [...new Set(archs)]
+            const data = {
+                labels: arch,
+                datasets:[{
+                    label: "Arch",
+                    data: [1203, 353],
+                    backgroundColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 205, 86)'
+                  ],
+                    hoverOffset: 4
+                }]
+            }
+
+            const config = {
+                type: 'pie',
+                data: data
+            }
+
+            new Chart(ctx, config)
+
+        </script>        
     </body>
 </html>
