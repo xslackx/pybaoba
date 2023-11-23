@@ -17,4 +17,4 @@ guestFmt = packFmt(guestPacks, guestOs)
 def web():
     return render_template('index.html', packages=guestFmt)
     
-app.run()
+app.run(host="0.0.0.0")
