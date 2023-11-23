@@ -7,6 +7,8 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/uikit.min.css')}}" />
         <script src="{{url_for('static', filename='js/uikit.min.js')}}"></script>
         <script src="{{url_for('static', filename='js/uikit-icons.min.js')}}"></script>
+        <script src="{{url_for('static', filename='js/count-occurrences.js')}}"></script>
+
         <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
         <script src=" https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js "></script>
         <script type="text/javascript">
@@ -19,43 +21,22 @@
         <div  class="uk-container">
             
             <div>
-                <canvas id="pieChart"></canvas>
+                <canvas id="pieChartOne"></canvas>
+            </div>
+            <div>
+                <canvas id="pieChartTwo"></canvas>
             </div>
 
+
         <div>
+            <script type="text/javascript">
+                const contextoPie2 = document.getElementById('pieChartTwo')
+                const groups = guestData.map( (e) => { return e.groups })
+                const allGroups = []
+                const uniqsGroup = [...new Set(groups)]
+            </script>
 
-        <script type="text/javascript" >
-            const countOccurrences = (arr, val) => arr.reduce((a, v) => (v === val ? a + 1 : a), 0);
-            const ctx = document.getElementById('pieChart')
-            const archs = guestData.map( (e) => { return e.arch } )
-            const arch = [...new Set(archs)]
-            const quantArch = []
 
-            arch.forEach((e) => {
-                quantArch.push(countOccurrences(archs, e))
-            })
-
-            const data = {
-                labels: arch,
-                datasets:[{
-                    label: "Arch",
-                    data: quantArch,
-                    backgroundColor: [
-                    'rgb(255, 99, 132)',
-                    'rgb(54, 162, 235)',
-                    'rgb(255, 205, 86)'
-                  ],
-                    hoverOffset: 4
-                }]
-            }
-
-            const config = {
-                type: 'doughnut',
-                data: data
-            }
-
-            new Chart(ctx, config)
-
-        </script>        
+            <script src="{{url_for('static', filename='js/chart-pieone.js')}}"></script>      
     </body>
 </html>
