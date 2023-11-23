@@ -25,14 +25,21 @@
         <div>
 
         <script type="text/javascript" >
+            const countOccurrences = (arr, val) => arr.reduce((a, v) => (v === val ? a + 1 : a), 0);
             const ctx = document.getElementById('pieChart')
             const archs = guestData.map( (e) => { return e.arch } )
             const arch = [...new Set(archs)]
+            const quantArch = []
+
+            arch.forEach((e) => {
+                quant.push(countOccurrences(archs, e))
+            })
+
             const data = {
                 labels: arch,
                 datasets:[{
                     label: "Arch",
-                    data: [1203, 353],
+                    data: quantArch,
                     backgroundColor: [
                     'rgb(255, 99, 132)',
                     'rgb(54, 162, 235)',
@@ -43,7 +50,7 @@
             }
 
             const config = {
-                type: 'pie',
+                type: 'doughnut',
                 data: data
             }
 
