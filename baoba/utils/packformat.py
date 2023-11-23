@@ -2,22 +2,21 @@ from json import dumps, loads
 from collections import Counter
 
 def packFmt(pkgs, id):
+    
     if id == "ubuntu":
-        packs = pkgs.split("\n")
+        packs = pkgs[93:].split("\n")
         
-        for aptwarning in range(4):
-            packs.pop(0)
-
-        packStorage = []
-        for x in range(len(packs)):
-            if x != None:
-                packStorage.append(eachPack(packs[x], id))
-
-        hits = hitCount(dumps(packStorage), id)
-    
-        packStorage.append(hits)
-    
-        return packStorage
+        def fmt(e):
+            p = e.split()
+        
+            return { "name": p[0].split("/")[0],
+                    "groups": p[0].split("/")[1].split(','),
+                    "version": p[1],
+                    "arch": p[2]}
+        
+        f = list(map(fmt, packs))
+        
+        return dumps(f)
     
     if id == "fedora":
         packs = pkgs.split()
@@ -50,18 +49,7 @@ def packFmt(pkgs, id):
 
 
 def eachPack(p, i):
-    if i == "ubuntu":
-        packName = p.split()[0].split("/")[0]
-        packGroup = p.split()[0].split("/")[1].split(",")
-        packVersion = p.split()[1]
-        packArch = p.split()[2]
 
-        return {
-            "name": packName,
-            "group": packGroup,
-            "version": packVersion,
-            "arch": packArch
-            }
     if i == "fedora":
 
         packName = p[0].split(".")[0]
