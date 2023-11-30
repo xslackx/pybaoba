@@ -1,20 +1,14 @@
 from os.path import abspath
 from flask import Flask, render_template
-from utils import *
+from baba import Baoba
 
 tmpl = abspath('web/templates')
 statics = abspath('web/static')
-
-app = Flask('baoba web', template_folder=tmpl, static_folder=statics)
-
-# To improve better response to user browser
-guestOs = osLike()
-guestCmd = packMan(guestOs)
-guestPacks = packIns(guestCmd)
-guestFmt = packFmt(guestPacks, guestOs)
+app = Flask('Baoba Web', template_folder=tmpl, static_folder=statics)
+data = Baoba()
 
 @app.route("/")
 def web():
-    return render_template('index.html', packages=guestFmt)
+    return render_template('index.html', packages=data.guestFmt)
     
 app.run(host="0.0.0.0")
