@@ -41,7 +41,7 @@ Install all requirements needed
 python3 -m pip install -r requirements.txt
 ```
 
-Starting pybaoba listen on default port 5001
+Starting pybaoba listen on default port 5000
 
 ```
 source bin/activate && python3 wbaoba.py

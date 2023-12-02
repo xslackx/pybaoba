@@ -72,8 +72,5 @@ const rgb = [
   ]
 
 function rcolors(){
-        random = Math.floor( Math.random() * rgb.length )
-        pic = rgb[random]
-        return pic
-
+        return rgb[Math.floor( Math.random() * rgb.length )]
 }
