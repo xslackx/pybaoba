@@ -37,15 +37,14 @@ def packFmt(pkgs, id):
         
         packs = (list(zip(packNames, packVersions, packGroups)))
 
+
         for x in range(len(packs)):
             if x != None:
                 packStorage.append(eachPack(packs[x], id))
+        #hits = hitCount(dumps(packStorage), id)
+        #packStorage.append(hits)
 
-        hits = hitCount(dumps(packStorage), id)
-
-        packStorage.append(hits)
-
-        return packStorage
+        return dumps(packStorage)
 
 
 def eachPack(p, i):
