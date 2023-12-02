@@ -10,16 +10,16 @@ arch.forEach((e) => {
 const dataPie1 = {
     labels: arch,
     datasets:[{
-        label: "Arch",
+        label: "Quantity of packages",
         data: quantperArch,
-        backgroundColor: [
-        'rgb(255, 99, 132)',
-        'rgb(54, 162, 235)',
-        'rgb(255, 205, 86)'
-      ],
+        backgroundColor: [],
         hoverOffset: 4
     }]
 }
+
+arch.forEach((e) => {
+    dataPie1["datasets"][0].backgroundColor.push('rgb'+rcolors().split('\t')[3])       
+})
 
 const configPie1 = {
     type: 'doughnut',

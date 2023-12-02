@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/uikit.min.css')}}" />
         <script src="{{url_for('static', filename='js/uikit.min.js')}}"></script>
+        <script src="{{url_for('static', filename='js/rgb.js')}}"></script>
         <script src="{{url_for('static', filename='js/uikit-icons.min.js')}}"></script>
         <script src="{{url_for('static', filename='js/count-occurrences.js')}}"></script>
 
@@ -20,23 +21,20 @@
 
         <div  class="uk-container">
             
-            <div>
-                <canvas id="pieChartOne"></canvas>
+            <div class="uk-padding-small">
+                <span class="uk-label uk-label-success">Packages per architecture</span>
+                <canvas class="uk-padding-large" id="pieChartOne"></canvas>
             </div>
-            <div>
-                <canvas id="pieChartTwo"></canvas>
+            <hr class="uk-divider-icon">
+            <div class="uk-padding-small">
+                <span class="uk-label uk-label-success">Packages per repository</span>
+                <canvas class="uk-padding-large" id="pieChartTwo"></canvas>
             </div>
 
 
         <div>
-            <script type="text/javascript">
-                const contextoPie2 = document.getElementById('pieChartTwo')
-                const groups = guestData.map( (e) => { return e.groups })
-                const allGroups = []
-                const uniqsGroup = [...new Set(groups)]
-            </script>
 
-
-            <script src="{{url_for('static', filename='js/chart-pieone.js')}}"></script>      
+            <script src="{{url_for('static', filename='js/chart-pieone.js')}}"></script>
+            <script src="{{url_for('static', filename='js/chart-pietwo.js')}}"></script>      
     </body>
 </html>
