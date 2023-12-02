@@ -5,15 +5,14 @@ const repos = []
 
 repoGroups.map((e) => {
 
-    if (typeof(e) == undefined){
+    if (typeof(e) == "string"){
+        repos.push(e.replace('@', ''))
+    }else{
         if (e.length > 0){
             for(let i=0; i < e.length; i++){
                 repos.push(e[i])
             }
-        }        
-    }
-    if (typeof(e) == "string"){
-        repos.push(e)
+        }    
     }
 })
 
