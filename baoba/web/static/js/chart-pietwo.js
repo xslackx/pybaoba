@@ -4,10 +4,16 @@ const quantperGroup = []
 const repos = []
 
 repoGroups.map((e) => {
-    if (e.length > 0){
-        for(let i=0; i < e.length; i++){
-            repos.push(e[i])
-        }
+
+    if (typeof(e) == undefined){
+        if (e.length > 0){
+            for(let i=0; i < e.length; i++){
+                repos.push(e[i])
+            }
+        }        
+    }
+    if (typeof(e) == "string"){
+        repos.push(e)
     }
 })
 

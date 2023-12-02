@@ -17,11 +17,11 @@ def web():
 @app.route('/ssh')
 def ssh():
     args = request.args.get('h')
-    if args and ipaddress.ip_address(args):
+    if args:
         access = sshBaoba(args)
         access.con()
         data = access.fmt()
-        
+        #return data
         return render_template('index.html', packages=data)
     else:
         return "<h1>The ssh host is missing"

@@ -58,7 +58,7 @@ def eachPack(p, i):
        
         return {
             "name": packName,
-            "group": packGroup,
+            "groups": packGroup,
             "version": packVersion,
             "arch": packArch
             }
